@@ -20,7 +20,8 @@
         <ul>
           <li>projets</li>
           <li>contact</li>
-          <li>login</li>
+          <li><a href="login.html" id="login-link">login</a></li>
+          <li><a href="#" id="logout-link" style="display: none">logout</a></li>
           <li><img src="./assets/icons/instagram.png" alt="Instagram" /></li>
         </ul>
       </nav>
@@ -51,10 +52,8 @@
       </section>
       <section id="portfolio">
         <h2>Mes Projets</h2>
-        <div class="filters">
-        </div>
-        <div class="gallery">
-        </div>
+        <div class="filters"></div>
+        <div class="gallery"></div>
       </section>
       <section id="contact">
         <h2>Contact</h2>
@@ -70,7 +69,6 @@
         </form>
       </section>
     </main>
-
     <footer>
       <nav>
         <ul>
@@ -79,5 +77,6 @@
       </nav>
     </footer>
     <script src="./scripts/main.js"></script>
+    <script src="./scripts/auth.js"></script>
   </body>
 </html>

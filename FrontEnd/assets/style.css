@@ -140,7 +140,7 @@ header {
   margin: 50px 0;
 }
 section {
-  margin: 50px 0;
+  margin-top: 100px;
 }
 
 h1 {
@@ -163,6 +163,7 @@ h2 {
   font-weight: 700;
   font-size: 30px;
   color: #1d6154;
+  padding-top: 100px;
 }
 nav ul {
   display: flex;
@@ -284,4 +285,71 @@ footer nav ul {
 .filters button.active {
   background-color: #1d6154;
   color: white;
+}
+
+/* Styles pour la page de connexion */
+#login {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+}
+
+#login form {
+  text-align: left;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+#login label {
+  margin: 10px 0 5px;
+  font-family: "Work Sans";
+  font-size: 14px;
+}
+
+#login input[type="email"],
+#login input[type="password"] {
+  height: 50px;
+  font-size: 1.2em;
+  border: none;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  margin-bottom: 20px;
+}
+
+#login input[type="submit"] {
+  height: 35px;
+  border: none;
+}
+
+#login button#forgot-password {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  text-decoration: underline;
+}
+
+.error-message {
+  color: red;
+  font-family: "Work Sans";
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+nav img {
+  width: 40%;
+}
+
+nav li {
+  padding-left: 30px;
+  text-decoration: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+}
+
+#selection {
+  font-weight: bold;
 }

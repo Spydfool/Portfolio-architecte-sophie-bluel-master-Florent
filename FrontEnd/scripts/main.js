@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch((error) => console.error("Erreur:", error));
 });
 
+// Afficher les travaux
 function displayWorks(works) {
   const gallery = document.querySelector(".gallery");
   gallery.innerHTML = "";
@@ -40,6 +41,7 @@ function displayWorks(works) {
   });
 }
 
+// Afficher les catégories
 function displayCategories(categories) {
   const filterContainer = document.querySelector(".filters");
 
@@ -66,6 +68,7 @@ function displayCategories(categories) {
   });
 }
 
+//bouton actif
 function setActiveButton(activeButton) {
   const buttons = document.querySelectorAll(".filters button");
   buttons.forEach((button) => {
