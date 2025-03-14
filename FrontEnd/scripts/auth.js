@@ -12,13 +12,13 @@ document.addEventListener("DOMContentLoaded", () => {
     logoutLink.style.display = "block";
     adminBar.style.display = "flex";
     editButton.style.display = "flex";
-    filtersSection.style.display = "none"; // Masquer les filtres
+    filtersSection.style.display = "none";
   } else {
     loginLink.style.display = "block";
     logoutLink.style.display = "none";
     adminBar.style.display = "none";
     editButton.style.display = "none";
-    filtersSection.style.display = "block"; // Afficher les filtres
+    filtersSection.style.display = "block";
   }
 
   // Gérer la déconnexion

@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((works) => {
       allWorks = works;
       displayWorks(works);
-      displayModalWorks(works); // Afficher les travaux dans la modale
+      displayModalWorks(works);
     })
     .catch((error) => console.error("Erreur:", error));
 
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((response) => response.json())
     .then((categories) => {
       displayCategories(categories);
-      populateCategorySelect(categories); // Remplir le champ select des catégories
+      populateCategorySelect(categories);
     })
     .catch((error) => console.error("Erreur:", error));
 
@@ -55,6 +55,53 @@ document.addEventListener("DOMContentLoaded", () => {
     galleryContent.style.display = "block";
   });
 
+  
+  // Gérer l'aperçu de l'image ajoutée
+  const imageInput = document.getElementById("image");
+  const titleInput = document.getElementById("title");
+  const categoryInput = document.getElementById("category");
+  const imagePreview = document.getElementById("image-preview");
+  const imageUploadPlaceholder = document.getElementById(
+    "image-upload-placeholder"
+  );
+  const uploadButton = document.getElementById("upload-button");
+
+  // Gerer le CSS du bouton ajout work
+  function changeCssAddWork() {
+    if (imageInput.files.length > 0 && titleInput.value && categoryInput.value > 0) {
+      return document.querySelector('#add-photo-form button[type="submit"]').classList.add("active");
+    }
+
+    document.querySelector('#add-photo-form button[type="submit"]').classList.remove("active");
+
+  }
+
+  uploadButton.addEventListener("click", () => {
+    imageInput.click();
+  });
+
+  imageInput.addEventListener("change", (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        imagePreview.src = e.target.result;
+        imagePreview.style.display = "block";
+        imageUploadPlaceholder.style.display = "none";
+      };
+      reader.readAsDataURL(file);
+    }
+    changeCssAddWork();
+  });
+
+  titleInput.addEventListener("input", () => {
+    changeCssAddWork();
+  });
+
+  categoryInput.addEventListener("change", () => {
+    changeCssAddWork();
+  })
+
   // Gérer l'envoi du formulaire d'ajout de projet
   const addPhotoForm = document.getElementById("add-photo-form");
   addPhotoForm.addEventListener("submit", (event) => {
@@ -80,6 +127,8 @@ document.addEventListener("DOMContentLoaded", () => {
         displayWorks(allWorks);
         displayModalWorks(allWorks);
         addPhotoForm.reset();
+        imagePreview.style.display = "none";
+        imageUploadPlaceholder.style.display = "flex";
         addPhotoContent.style.display = "none";
         galleryContent.style.display = "block";
       })
@@ -150,9 +199,7 @@ function deleteWork(workId, workElement) {
       if (!response.ok) {
         throw new Error("Erreur lors de la suppression du travail");
       }
-      // Supprimer l'élément du DOM
       workElement.remove();
-      // Mettre à jour la liste des travaux
       allWorks = allWorks.filter((work) => work.id !== workId);
       displayWorks(allWorks);
     })

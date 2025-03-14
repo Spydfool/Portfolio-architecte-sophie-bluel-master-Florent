@@ -36,7 +36,7 @@ document
         document.getElementById("error-message").textContent =
           "Erreur dans l’identifiant ou le mot de passe";
       });
-        setTimeout(() => {
-          document.getElementById("error-message").textContent = "";
-        }, 3000);
+    setTimeout(() => {
+      document.getElementById("error-message").textContent = "";
+    }, 3000);
   });
