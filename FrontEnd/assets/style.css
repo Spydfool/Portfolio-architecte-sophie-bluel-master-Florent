@@ -373,6 +373,7 @@ nav a {
   display: flex;
   align-items: center;
   justify-content: center;
+  display: none;
 }
 
 /* Bouton Modifier */
@@ -387,6 +388,7 @@ nav a {
   margin-left: 10px;
   display: flex;
   align-items: center;
+  display: none;
 }
 
 /* Styles pour la fenêtre modale */
@@ -618,6 +620,7 @@ h2 svg {
   object-fit: contain;
   max-width: 150px;
   margin: auto;
+  display: none;
 }
 
 #image-upload-container .upload-photo-button {
@@ -637,4 +640,8 @@ h2 svg {
   border: none;
   border-top: 1px solid #b3b3b3;
   margin: 20px 50px;
+}
+
+.modal {
+  display: none;
 }

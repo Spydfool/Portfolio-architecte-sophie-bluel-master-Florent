@@ -55,7 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
     galleryContent.style.display = "block";
   });
 
-  
   // Gérer l'aperçu de l'image ajoutée
   const imageInput = document.getElementById("image");
   const titleInput = document.getElementById("title");
@@ -68,12 +67,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Gerer le CSS du bouton ajout work
   function changeCssAddWork() {
-    if (imageInput.files.length > 0 && titleInput.value && categoryInput.value > 0) {
-      return document.querySelector('#add-photo-form button[type="submit"]').classList.add("active");
+    const submitButton = document.querySelector(
+      '#add-photo-form button[type="submit"]'
+    );
+    if (
+      imageInput.files.length > 0 &&
+      titleInput.value &&
+      categoryInput.value
+    ) {
+      submitButton.classList.add("active");
+      submitButton.disabled = false;
+    } else {
+      submitButton.classList.remove("active");
+      submitButton.disabled = true;
     }
-
-    document.querySelector('#add-photo-form button[type="submit"]').classList.remove("active");
-
   }
 
   uploadButton.addEventListener("click", () => {
@@ -100,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   categoryInput.addEventListener("change", () => {
     changeCssAddWork();
-  })
+  });
 
   // Gérer l'envoi du formulaire d'ajout de projet
   const addPhotoForm = document.getElementById("add-photo-form");
@@ -131,6 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
         imageUploadPlaceholder.style.display = "flex";
         addPhotoContent.style.display = "none";
         galleryContent.style.display = "block";
+        changeCssAddWork();
       })
       .catch((error) => console.error("Erreur:", error));
   });
